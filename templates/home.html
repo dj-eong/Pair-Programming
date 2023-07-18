@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<ul>
-    {% for user in users %}
-    <li><a href="/users/{{user.username}}">{{user.username}}</a></li>
-    {% endfor %}
-</ul>
-<a href="/logout">
-    <button>Log Out</button>
-</a>
+<style>
+    .clickable-item {
+        cursor: pointer;
+    }
+
+    .clickable-item:hover {
+        background-color: #eeeeee;
+    }
+</style>
+
+<div class="container my-5">
+    <ul class="list-group">
+        {% for user in users %}
+        <li class="list-group-item clickable-item" onclick="window.location='/users/{{user.username}}';">
+            <a href="/users/{{user.username}}" class="text-dark">{{user.username}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/logout" class="btn custom-color btn-rounded btn-block mt-4">Log Out</a>
+</div>
 {% endblock %}
