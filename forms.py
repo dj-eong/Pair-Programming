@@ -15,7 +15,7 @@ units = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7",
 
 
 class RegisterForm(FlaskForm):
-    username = StringField("cal.com username", validators=[InputRequired()])
+    username = StringField("cal.com Username", validators=[InputRequired()])
     password = PasswordField("Password", validators=[InputRequired()])
     email = StringField("Email", validators=[InputRequired(), Email()])
     first_name = StringField("First Name",  validators=[InputRequired()])

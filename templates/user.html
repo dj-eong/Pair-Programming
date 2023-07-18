@@ -1,19 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{user.username}}</h1>
-<h2>{{user.first_name}} {{user.last_name}}</h2>
-<h3>{{user.email}}</h3>
+<style>
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+</style>
 
-<a href="/logout">
-    <button>Log Out</button>
-</a>
-<form action="/users/{{user.username}}/delete" method="POST">
-    <button>Delete Account</button>
-</form>
-<a href="/">
-    <button>Home</button>
-</a>
+<div class="container my-5">
+    <h1 class="text-center">{{user.username}}</h1>
+    <h2 class="text-center">{{user.first_name}} {{user.last_name}}</h2>
+    <h3 class="text-center">{{user.email}}</h3>
+
+    <div class="button-container">
+        <a href="/logout" class="btn custom-color btn-rounded mb-2">Log Out</a>
+
+        <form action="/users/{{user.username}}/delete" method="POST">
+            <button class="btn custom-color btn-rounded mb-2">Delete Account</button>
+        </form>
+
+        <a href="/" class="btn custom-color btn-rounded mb-2">Home</a>
+    </div>
+
+    <div id="cal-embed"></div>
+</div>
 
 <script>
     (function (C, A, L) {
